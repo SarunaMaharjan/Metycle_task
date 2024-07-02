@@ -1,0 +1,13 @@
+--Checking the csv files.
+
+SELECT * 
+FROM credits 
+LIMIT 10;
+
+SELECT * 
+FROM ratings 
+LIMIT 10;
+
+SELECT * 
+FROM titles 
+LIMIT 10;

@@ -1,0 +1,33 @@
+-- Create the deduplicated_titles table with the common fields from titles and ratings
+
+
+CREATE TABLE deduplicated_list AS
+SELECT
+    titles.id,
+    titles.title,
+    titles.type,
+    titles.description,
+    titles.release_year,
+    titles.age_certification,
+    titles.runtime,
+    titles.imdb_id,
+    titles.imdb_score, 
+    titles.imdb_votes   
+
+FROM
+    titles
+    JOIN ratings ON titles.id = ratings.id
+
+GROUP BY
+    titles.id,
+    titles.title,
+    titles.type,
+    titles.description,
+    titles.release_year,
+    titles.age_certification,
+    titles.runtime,
+    titles.imdb_id,
+    titles.imdb_score,
+    titles.imdb_votes;
+
+SELECT * FROM deduplicated_list LIMIT 10;

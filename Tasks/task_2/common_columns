@@ -1,0 +1,11 @@
+-- Find common columns from 'titles' and 'ratings'
+SELECT
+    a.column_name
+FROM
+    information_schema.columns a
+JOIN
+    information_schema.columns b
+    ON a.column_name = b.column_name
+WHERE
+    a.table_name = 'titles'
+    AND b.table_name = 'ratings';
