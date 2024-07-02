@@ -1,0 +1,22 @@
+--In how many movies did the most starring actor in a year star in?
+
+-- Number of movies for the most starring actor in a year
+WITH most_starring_actor AS (
+    SELECT
+        release_year,
+        name,
+        COUNT(*) AS movie_count,
+        ROW_NUMBER() OVER (PARTITION BY release_year ORDER BY COUNT(*) DESC) AS row_num
+    FROM
+        combined_list
+    GROUP BY
+        release_year, name
+)
+SELECT
+    release_year,
+    name,
+    movie_count
+FROM
+    most_starring_actor
+WHERE
+    row_num = 1;

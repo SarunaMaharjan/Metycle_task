@@ -11,3 +11,4 @@ LIMIT 10;
 SELECT * 
 FROM titles 
 LIMIT 10;
+

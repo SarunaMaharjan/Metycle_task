@@ -1,0 +1,17 @@
+--Combine the result from the first task with the `credits` table
+
+CREATE TABLE combined_list AS
+SELECT 
+    deduplicated_list.*,
+    credits.person_id,
+    credits.name,
+    credits.character,
+    credits.role ;
+FROM 
+    deduplicated_list 
+    JOIN credits ON deduplicated_list.id = credits.id ;
+
+
+SELECT *
+FROM combined_list
+LIMIT 100;

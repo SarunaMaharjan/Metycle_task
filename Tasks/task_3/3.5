@@ -1,0 +1,7 @@
+--Count the number of movies per genre. Visualize the result, if possible
+
+SELECT genres, COUNT(*) AS movie_count
+FROM titles
+WHERE type = 'MOVIE'
+GROUP BY genres
+ORDER BY movie_count DESC;

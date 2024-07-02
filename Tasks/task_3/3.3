@@ -1,0 +1,19 @@
+--What are the 10 longest titles? What are the 10 shortest titles? How long are they?
+
+-- Longest titles
+SELECT 
+    title, 
+    LENGTH(title) AS title_length
+FROM deduplicated_list
+ORDER BY title_length DESC
+LIMIT 10;
+
+-- Shortest titles
+SELECT 
+    title, 
+    LENGTH(title) AS title_length
+FROM deduplicated_list
+ORDER BY title_length ASC
+LIMIT 10;
+
+--here the LENGTH() function returns the length of a string and using LIMIT we can display top 10 list

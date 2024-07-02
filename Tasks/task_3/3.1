@@ -1,2 +1,7 @@
 --What are the longest and shortest run times among the movies?
 
+-- Longest runtime
+SELECT MAX(runtime) AS longest_runtime FROM deduplicated_list WHERE type = 'MOVIE';
+
+-- Shortest runtime
+SELECT MIN(runtime) AS shortest_runtime FROM deduplicated_list WHERE type = 'MOVIE';

@@ -1,0 +1,23 @@
+--Is there an increase or decrease in the average runtime per release year? Check individually for shows and movies. Visualise the results if possible.
+
+
+
+-- For movies
+SELECT 
+    release_year, 
+    AVG(runtime) AS avg_runtime_movies
+FROM deduplicated_list
+WHERE type = 'MOVIE'
+GROUP BY release_year
+ORDER BY release_year;
+
+
+-- For shows
+SELECT 
+    release_year, 
+    AVG(runtime) AS avg_runtime_show
+FROM deduplicated_list
+WHERE type = 'SHOW'
+GROUP BY release_year
+ORDER BY release_year;
+

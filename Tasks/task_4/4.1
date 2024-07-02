@@ -1,0 +1,12 @@
+--Which is the actor that starred in most movies by release year?
+
+SELECT
+    name,
+    release_year,
+    COUNT(*) AS movie_count
+FROM
+    combined_list
+GROUP BY
+    release_year, name
+ORDER BY
+    release_year, movie_count DESC;
