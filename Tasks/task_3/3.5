@@ -1,7 +1,23 @@
 --Count the number of movies per genre. Visualize the result, if possible
 
+-- Updating the deduplicated_list to add the genres column
+
+ALTER TABLE deduplicated_list
+ADD COLUMN genres VARCHAR(255);  -- Adjust VARCHAR(255) as per your actual data type
+
+UPDATE deduplicated_list 
+SET genres = titles.genres
+FROM titles 
+WHERE deduplicated.id = titles.id;
+
+SELECT *
+FROM deduplicated_list
+ORDER BY title ASC;
+
 SELECT genres, COUNT(*) AS movie_count
-FROM titles
+FROM deduplicated_list
 WHERE type = 'MOVIE'
 GROUP BY genres
-ORDER BY movie_count DESC;
+ORDER BY movie_count DESC; 
+
+

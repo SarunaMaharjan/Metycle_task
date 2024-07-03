@@ -3,10 +3,11 @@
 CREATE TABLE combined_list AS
 SELECT 
     deduplicated_list.*,
-    credits.person_id,
+    /* credits.person_id,
     credits.name,
     credits.character,
-    credits.role ;
+    credits.role */ 
+    credits.* 
 FROM 
     deduplicated_list 
     JOIN credits ON deduplicated_list.id = credits.id ;

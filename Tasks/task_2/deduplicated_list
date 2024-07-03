@@ -14,24 +14,29 @@ SELECT
     titles.imdb_votes ;
 
 FROM titles
-JOIN ratings ON titles.id = ratings.id;
+JOIN ratings ON titles.id = ratings.id
 
-GROUP BY
-    titles.id,
-    titles.title,
-    titles.type,
-    titles.description,
-    titles.release_year,
-    titles.age_certification,
-    titles.runtime,
-    titles.imdb_id,
-    titles.imdb_score, 
-    titles.imdb_votes ;
+--Here, replaced some NULL values present in age_certification column as U (Universal age group)
+UPDATE deduplicated_list
+SET age_certification= 'U'
+WHERE age_certification IS NULL;
 
--- Verify the deduplicated list
-SELECT * FROM deduplicated_list
-ORDER BY title ASC
-LIMIT 10;
+-- Verifying the deduplicated list
+SELECT * 
+FROM deduplicated_list
+ORDER BY title ASC; 
+
+
+ /* SELECT MIN(id) AS id, title, MIN(type), MIN(description), MIN(release_year), MIN(age_certification), MIN(runtime),MIN(imdb_id), MIN(deduplicated_list.imdb_score),MIN(deduplicated_list.imdb_votes)
+FROM deduplicated_list
+GROUP BY title
+ORDER BY title ASC; */
+
+
+
+
+
+
 
 --Checking longest and shortest runtime
 /*SELECT runtime
