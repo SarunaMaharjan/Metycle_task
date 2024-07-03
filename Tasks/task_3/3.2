@@ -5,7 +5,7 @@
 -- For movies
 SELECT 
     release_year, 
-    AVG(runtime) AS avg_runtime_movies
+    ROUND(AVG(runtime)) AS avg_runtime_movies 
 FROM deduplicated_list
 WHERE type = 'MOVIE'
 GROUP BY release_year
@@ -15,7 +15,7 @@ ORDER BY release_year;
 -- For shows
 SELECT 
     release_year, 
-    AVG(runtime) AS avg_runtime_show
+    ROUND(AVG(runtime)) AS avg_runtime_show
 FROM deduplicated_list
 WHERE type = 'SHOW'
 GROUP BY release_year
