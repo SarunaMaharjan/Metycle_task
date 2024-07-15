@@ -3,7 +3,7 @@
 -- Updating the deduplicated_list to add the genres column
 
 ALTER TABLE deduplicated_list
-ADD COLUMN genres VARCHAR(255);  -- Adjust VARCHAR(255) as per your actual data type
+ADD COLUMN genres VARCHAR(255);  
 
 UPDATE deduplicated_list 
 SET genres = titles.genres

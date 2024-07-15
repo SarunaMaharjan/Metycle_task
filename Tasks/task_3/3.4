@@ -15,6 +15,6 @@ SELECT
     AVG(imdb_score) AS avg_imdb_score
 FROM deduplicated_list
 WHERE type = 'MOVIE' 
-GROUP BY vote_range;
+GROUP BY vote_range
 ORDER BY vote_range;
 

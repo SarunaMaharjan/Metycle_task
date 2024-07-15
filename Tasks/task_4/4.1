@@ -4,12 +4,13 @@
 SELECT
     name,
     release_year,
-    COUNT(*) AS movie_count,
+    COUNT(*) AS movie_count
 
 FROM
     combined_list
+WHERE type = 'MOVIE' 
 GROUP BY
     release_year, name
 ORDER BY
     release_year, 
-    movie_count ASC;
+    movie_count DESC;
