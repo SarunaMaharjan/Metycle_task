@@ -1,6 +1,3 @@
-Sure! Here's a concise and nice README without any code:
-
----
 
 # Movie Data Analysis
 
